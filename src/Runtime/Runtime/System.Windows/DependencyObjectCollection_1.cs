@@ -143,7 +143,7 @@ namespace Windows.UI.Xaml
         /// <exception cref="ArgumentException">
         /// item is not a <see cref="DependencyObject"/>.
         /// </exception>
-        public int IndexOf(T item) => _collection.IndexOf(AsDependencyObject(item));
+        public int IndexOf(T item) => _collection.IndexOf(item as DependencyObject);
 
         /// <summary>
         /// Adds the specified object to the collection at the specified index.
