@@ -58,7 +58,7 @@ namespace System.Windows.Media.Effects
 		[OpenSilver.NotImplemented]
         protected static DependencyProperty RegisterPixelShaderSamplerProperty(string @dpName, Type @ownerType, int @samplerRegisterIndex, SamplingMode @samplingMode)
         {
-            return null;
+            return DependencyProperty.Register(dpName, typeof(Brush), ownerType, new PropertyMetadata());
         }
     }
 }

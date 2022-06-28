@@ -90,8 +90,8 @@ namespace System.Windows.Browser
 		[OpenSilver.NotImplemented]
         public static bool IsEnabled { get; private set; }
 
-		[OpenSilver.NotImplemented]
-        public static BrowserInformation BrowserInformation { get; private set; }
+        [OpenSilver.NotImplemented]
+        public static BrowserInformation BrowserInformation { get; private set; } = new BrowserInformation();
 
         /// <summary>
         /// Registers a managed object for scriptable access by JavaScript code.

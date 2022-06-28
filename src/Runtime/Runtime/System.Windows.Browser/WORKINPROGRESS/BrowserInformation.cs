@@ -27,8 +27,8 @@ namespace System.Windows.Browser
         //
         // Returns:
         //     The version of the underlying browser technology.
-		[OpenSilver.NotImplemented]
-        public Version BrowserVersion { get; private set; }
+        [OpenSilver.NotImplemented]
+        public Version BrowserVersion { get; private set; } = new Version();
         //
         // Summary:
         //     Gets a value that indicates whether the browser supports cookies.
