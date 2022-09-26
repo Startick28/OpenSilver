@@ -13,6 +13,7 @@
 \*====================================================================================*/
 
 using System;
+using System.Windows.Controls.Primitives;
 
 #if MIGRATION
 using System.Windows.Media;
@@ -328,5 +329,8 @@ namespace Windows.UI.Xaml.Controls
         /// </returns>
         [OpenSilver.NotImplemented]
         public SelectedDatesCollection SelectedDates { get; private set; }
+
+        [OpenSilver.NotImplemented]
+        internal void UpdateMonths() { }
     }
 }

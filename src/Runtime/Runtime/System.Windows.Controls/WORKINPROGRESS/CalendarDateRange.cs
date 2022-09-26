@@ -26,14 +26,9 @@ namespace Windows.UI.Xaml.Controls
     [OpenSilver.NotImplemented]
     public sealed class CalendarDateRange
     {
-        /// <summary>
-        /// Gets the first date in the represented range.
-        /// </summary>
-        /// <returns>
-        /// The first date in the represented range.
-        /// </returns>
-        [OpenSilver.NotImplemented]
-        public DateTime Start { get; }
+        /// <summary>Gets the first date in the represented range.</summary>
+        /// <returns>The first date in the represented range.</returns>
+        public DateTime Start { get; private set; }
 
         /// <summary>
         /// Gets the last date in the represented range.
@@ -41,8 +36,7 @@ namespace Windows.UI.Xaml.Controls
         /// <returns>
         /// The last date in the represented range.
         /// </returns>
-        [OpenSilver.NotImplemented]
-        public DateTime End { get; }
+        public DateTime End { get; private set; }
 
         /// <summary>
         /// Gets a description of the represented range.
@@ -50,8 +44,7 @@ namespace Windows.UI.Xaml.Controls
         /// <returns>
         /// The description of the represented range.
         /// </returns>
-        [OpenSilver.NotImplemented]
-        public string Description { get; }
+        public string Description { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:System.Windows.Controls.CalendarDateRange" /> class with a single date.
@@ -59,7 +52,6 @@ namespace Windows.UI.Xaml.Controls
         /// <param name="day">
         /// The date to be represented by the range.
         /// </param>
-        [OpenSilver.NotImplemented]
         public CalendarDateRange(DateTime day)
         {
             this.Start = day;
@@ -76,7 +68,6 @@ namespace Windows.UI.Xaml.Controls
         /// <param name="end">
         /// The end of the range to be represented.
         /// </param>
-        [OpenSilver.NotImplemented]
         public CalendarDateRange(DateTime start, DateTime end)
             : this(start, end, null)
         {
@@ -95,7 +86,6 @@ namespace Windows.UI.Xaml.Controls
         /// <param name="description">
         /// A description of the data range.
         /// </param>
-        [OpenSilver.NotImplemented]
         public CalendarDateRange(DateTime start, DateTime end, string description)
         {
             if (DateTime.Compare(end, start) >= 0)
@@ -109,6 +99,20 @@ namespace Windows.UI.Xaml.Controls
                 this.End = start;
             }
             this.Description = description;
+        }
+
+        internal bool ContainsAny(CalendarDateRange range)
+        {
+            int num = DateTime.Compare(Start, range.Start);
+            if (num > 0 || DateTime.Compare(End, range.Start) < 0)
+            {
+                if (num >= 0)
+                {
+                    return DateTime.Compare(Start, range.End) <= 0;
+                }
+                return false;
+            }
+            return true;
         }
     }
 }

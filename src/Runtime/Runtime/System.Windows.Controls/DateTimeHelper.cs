@@ -128,7 +128,7 @@ namespace Windows.UI.Xaml.Controls
         /// <returns>Inherited code: Requires comment 2.</returns>
         public static DateTime? DiscardTime(DateTime? d)
         {
-            if (d == null)
+            if (d == null || !d.HasValue)
             {
                 return null;
             }
